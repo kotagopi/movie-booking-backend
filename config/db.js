@@ -4,8 +4,8 @@ const connectDB = async () => {
   try {
     await mongoose.connect("mongodb://127.0.0.1:27017/moviebooking");
     console.log("✅ MongoDB Connected");
-  } catch (err) {
-    console.error("❌ MongoDB Connection Failed:", err.message);
+  } catch (error) {
+    console.error("❌ MongoDB Connection Failed:", error.message);
     process.exit(1);
   }
 };
