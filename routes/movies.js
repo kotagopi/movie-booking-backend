@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getAllMovies, createMovie, updateMovie, deleteMovie } = require('../controllers/movieController');
+const { getAllMovies, createMovie, updateMovie, deleteMovie, getMovieById } = require('../controllers/movieController');
 const  protect  = require('../middleware/authMiddleware');
 
 
@@ -10,6 +10,7 @@ router.get('/', getAllMovies);
 
 
 // protected route only logged in users can use
+router.get("/:id", getMovieById);
 
 router.post('/', protect, createMovie);
 router.put('/:id', protect, updateMovie);
